@@ -7,7 +7,6 @@ class product:
         self.productManufactureCost = pMC #(e.g., a real number greater than zero)
         self.stockLevel = sL #(an integer number greater than 0)
         self.estimatedMonthlyUnitsManufactured =eMUM #(e.g. an integer greater than or equal to 0)
-
     @property
     def productCode(self):
         # print("pc getter running")
@@ -17,9 +16,7 @@ class product:
         # print("pc setting running")
         if ((str(args)).isnumeric() and args >= 100 and args <= 1000):
             self._productCode = args
-        else:
-            print(type(args))
-            raise TypeError("an integer from 100 to 1000")
+        else: raise TypeError("an integer from 100 to 1000")
     @property
     def productName(self):
         return self._productName
@@ -27,8 +24,7 @@ class product:
     def productName(self,args):
         if (args.isalpha()):
             self._productName = args
-        else:
-            raise TypeError("only a string ")
+        else: raise TypeError("only a string ")
     @property
     def productSalePrice(self):
         return self._productSalePrice
@@ -36,8 +32,7 @@ class product:
     def productSalePrice(self,args:float):
         if (isinstance(args,(int,float)) and args > 0):
             self._productSalePrice = args
-        else:
-            raise TypeError("a real number greater than zero ")
+        else: raise TypeError("a real number greater than zero ")
     @property
     def productManufactureCost(self):
         return self._productManufactureCost
@@ -45,8 +40,7 @@ class product:
     def productManufactureCost(self,args):
         if (isinstance(args,(int,float)) and args > 0):
             self._productManufactureCost = args
-        else:
-            raise TypeError("a real number greater than zero ")
+        else: raise TypeError("a real number greater than zero ")
     @property
     def stockLevel(self):
         return self._stockLevel
@@ -54,53 +48,44 @@ class product:
     def stockLevel(self,args):
         if (str(args) != str(float(args))) and int(args) > 0:
             self._stockLevel = int(args)
-        else:
-            raise TypeError("an integer number greater than 0")
+        else: raise TypeError("an integer number greater than 0")
     @property
     def estimatedMonthlyUnitsManufactured(self):
         return self._estimatedMonthlyUnitsManufactured
-    
     @estimatedMonthlyUnitsManufactured.setter
     def estimatedMonthlyUnitsManufactured(self,args):
         if (isinstance(args,int)) and args >= 0:
             self._estimatedMonthlyUnitsManufactured = args
-        else:
-            raise TypeError("an integer greater than or equal to 0")
+        else: raise TypeError("an integer greater than or equal to 0")
 
 coc = product()
 while True:
     try:
         coc.productCode = int(input("Enter Product Code : ")) #(e.g. an integer greater than or equal to 0)
-        break
-    except Exception as e: print(e)
-
+        break 
+    except : pass
 while True:
     try:
         coc.productName = input("Enter Product Name : ") # must be a String
         break
-    except Exception as e: print(e)
-        
+    except : pass
 while True:
     try:
         coc.productSalePrice = float(input("Enter Sales Price : "))#(e.g., a real number greater than zero)
         break
-    except Exception as e: print(e)   
-
+    except : pass 
 while True:
     try:
         coc.productManufactureCost = float(input("Enter product Manufacture Cost : ")) #(e.g., a real number greater than zero)
         break
-    except Exception as e: print(e) 
-
+    except : pass
 while True:
     try:
         coc.stockLevel = input("Enter stockLevel : ") #(an integer number greater than 0)
         break
-    except Exception as e: print(e) 
-
+    except : pass
 while True:
     try:
         coc.estimatedMonthlyUnitsManufactured = int(input("Enter Estimated Monthly Units Manufactured : ")) #(e.g. an integer greater than or equal to 0)
         break
-    except Exception as e: print(e)   
-    
+    except : pass 
