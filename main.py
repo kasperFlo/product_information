@@ -32,8 +32,8 @@ class product:
     @property
     def productSalePrice(self):
         return self._productSalePrice
-    @productSalePrice.setter
-    def productSalePrice(self,args):
+    @productSalePrice.setter    
+    def productSalePrice(self,args:float):
         if (isinstance(args,(int,float)) and args > 0):
             self._productSalePrice = args
         else:
@@ -52,8 +52,8 @@ class product:
         return self._stockLevel
     @stockLevel.setter
     def stockLevel(self,args):
-        if (isinstance(args,int)) and args > 0:
-            self._stockLevel = args
+        if (str(args) != str(float(args))) and int(args) > 0:
+            self._stockLevel = int(args)
         else:
             raise TypeError("an integer number greater than 0")
     @property
@@ -82,13 +82,13 @@ while True:
         
 while True:
     try:
-        coc.productSalePrice =input("Enter Sales Price : ")#(e.g., a real number greater than zero)
+        coc.productSalePrice = float(input("Enter Sales Price : "))#(e.g., a real number greater than zero)
         break
     except Exception as e: print(e)   
 
 while True:
     try:
-        coc.productManufactureCost = input("Enter product Manufacture Cost : ") #(e.g., a real number greater than zero)
+        coc.productManufactureCost = float(input("Enter product Manufacture Cost : ")) #(e.g., a real number greater than zero)
         break
     except Exception as e: print(e) 
 
@@ -100,7 +100,7 @@ while True:
 
 while True:
     try:
-        coc.estimatedMonthlyUnitsManufactured = input("Enter Estimated Monthly Units Manufactured : ") #(e.g. an integer greater than or equal to 0)
+        coc.estimatedMonthlyUnitsManufactured = int(input("Enter Estimated Monthly Units Manufactured : ")) #(e.g. an integer greater than or equal to 0)
         break
     except Exception as e: print(e)   
     
