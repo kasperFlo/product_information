@@ -6,8 +6,6 @@ coc = m.product()
 # coc.productManufactureCost = 1
 # coc.stockLevel = 100
 # coc.estimatedMonthlyUnitsManufactured = 120
-coc.next12Months()
-
 while True:
     try:
         coc.productCode = int(input("Enter Product Code : ")) #(e.g. an integer greater than or equal to 0)
