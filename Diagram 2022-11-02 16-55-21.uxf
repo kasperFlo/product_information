@@ -1,0 +1,11 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>50</x><y>50</y><w>210</w><h>140</h></coordinates><panel_attributes>Product
+--
+productCode
+productName
+productSalePrice
+productManufactureCost
+stockLevel
+estimatedMonthlyUnitsManufactured
+--
+next12Months
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
