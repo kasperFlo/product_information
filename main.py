@@ -16,7 +16,6 @@ class product:
         # print("pc setting running")
         if ((str(args)).isnumeric() and args >= 100 and args <= 1000):
             self._productCode = args
-        else: raise TypeError("an integer from 100 to 1000")
     @property
     def productName(self):
         return self._productName
@@ -24,7 +23,6 @@ class product:
     def productName(self,args):
         if (args.isalpha()):
             self._productName = args
-        else: raise TypeError("only a string ")
     @property
     def productSalePrice(self):
         return self._productSalePrice
@@ -32,7 +30,6 @@ class product:
     def productSalePrice(self,args:float):
         if (isinstance(args,(int,float)) and args > 0):
             self._productSalePrice = args
-        else: raise TypeError("a real number greater than zero ")
     @property
     def productManufactureCost(self):
         return self._productManufactureCost
@@ -40,7 +37,6 @@ class product:
     def productManufactureCost(self,args):
         if (isinstance(args,(int,float)) and args > 0):
             self._productManufactureCost = args
-        else: raise TypeError("a real number greater than zero ")
     @property
     def stockLevel(self):
         return self._stockLevel
@@ -48,7 +44,6 @@ class product:
     def stockLevel(self,args):
         if (str(args) != str(float(args))) and int(args) > 0:
             self._stockLevel = int(args)
-        else: raise TypeError("an integer number greater than 0")
     @property
     def estimatedMonthlyUnitsManufactured(self):
         return self._estimatedMonthlyUnitsManufactured
@@ -56,12 +51,14 @@ class product:
     def estimatedMonthlyUnitsManufactured(self,args):
         if (isinstance(args,int)) and args >= 0:
             self._estimatedMonthlyUnitsManufactured = args
-        else: raise TypeError("an integer greater than or equal to 0")
+        else: raise TypeError()
     def next12Months(self):
         print(f"{'*'*30}\nProduct Code: {self.productCode}\nProduct Name: {self.productName}\n\n Sale Price :{self.productSalePrice}CAD\nManifacture Cost : {self.productManufactureCost}\nMonthly Production : {self.estimatedMonthlyUnitsManufactured} Units\n\n{'*'*30}")
         stock = self.stockLevel
+        totalSold = 0
         for i in range(1,13):
             diviation = randint(-10,11)
             stock -= diviation
             print(f"Month {i}:\n{' '*5}Manufactured: {self.estimatedMonthlyUnitsManufactured} Units\n{' '*5}Sold: {stock+diviation}\n{' '*5}Stock: {(stock)}")
-
+            totalSold += self.estimatedMonthlyUnitsManufactured + diviation
+        print(f"Totalsold is : {totalSold}\nNetProfits : {totalSold*(self.productSalePrice-self.productManufactureCost)}")
