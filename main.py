@@ -50,12 +50,12 @@ class product:
         if (isinstance(args,int)) and args >= 0:
             self._estimatedMonthlyUnitsManufactured = args
     def next12Months(self):
-        print(f"{'*'*30}\nProduct Code: {self.productCode}\nProduct Name: {self.productName}\n\n Sale Price :{self.productSalePrice}CAD\nManifacture Cost : {self.productManufactureCost}\nMonthly Production : {self.estimatedMonthlyUnitsManufactured} Units\n\n{'*'*30}")
+        print(f"{'*'*30}\nProduct Code: {self.productCode}\nProduct Name: {self.productName}\n\nSale Price : {self.productSalePrice} CAD\nManifacture Cost : {self.productManufactureCost}\nMonthly Production : {self.estimatedMonthlyUnitsManufactured} Units\n\n{'*'*30}")
         stock = self.stockLevel
         totalSold = 0
         for i in range(1,13):
             diviation = randint(-10,11)
             stock -= diviation
-            print(f"Month {i}:\n{' '*5}Manufactured: {self.estimatedMonthlyUnitsManufactured} Units\n{' '*5}Sold: {stock+diviation}\n{' '*5}Stock: {(stock)}")
+            print(f"Month {i}:\n*{' '*5}Manufactured: {self.estimatedMonthlyUnitsManufactured} Units\n*{' '*5}Sold: {stock+diviation}\n*{' '*5}Stock: {(stock)}")
             totalSold += self.estimatedMonthlyUnitsManufactured + diviation
-        print(f"Totalsold is : {totalSold}\nNetProfits : {totalSold*(self.productSalePrice-self.productManufactureCost)}")
+        print(f"\nTotalSold : {totalSold}\nNetProfits : {totalSold*(self.productSalePrice-self.productManufactureCost)} CAD")
