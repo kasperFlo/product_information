@@ -9,11 +9,9 @@ class product:
         self.estimatedMonthlyUnitsManufactured =eMUM #(e.g. an integer greater than or equal to 0)
     @property
     def productCode(self):
-        # print("pc getter running")
         return self._productCode
     @productCode.setter
     def productCode(self,args:int):
-        # print("pc setting running")
         if ((str(args)).isnumeric() and args >= 100 and args <= 1000):
             self._productCode = args
     @property
@@ -51,7 +49,6 @@ class product:
     def estimatedMonthlyUnitsManufactured(self,args):
         if (isinstance(args,int)) and args >= 0:
             self._estimatedMonthlyUnitsManufactured = args
-        else: raise TypeError()
     def next12Months(self):
         print(f"{'*'*30}\nProduct Code: {self.productCode}\nProduct Name: {self.productName}\n\n Sale Price :{self.productSalePrice}CAD\nManifacture Cost : {self.productManufactureCost}\nMonthly Production : {self.estimatedMonthlyUnitsManufactured} Units\n\n{'*'*30}")
         stock = self.stockLevel
