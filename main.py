@@ -12,43 +12,43 @@ class product:
         return self._productCode
     @productCode.setter
     def productCode(self,args:int):
-        if ((str(args)).isnumeric() and args >= 100 and args <= 1000):
-            self._productCode = args
+        if ((str(args)).isnumeric() and args >= 100 and args <= 1000): self._productCode = args  
+        else : raise TypeError
     @property
     def productName(self):
         return self._productName
     @productName.setter
     def productName(self,args):
-        if (args.isalpha()):
-            self._productName = args
+        if (args.isalpha()): self._productName = args
+        else : raise TypeError
     @property
     def productSalePrice(self):
         return self._productSalePrice
     @productSalePrice.setter    
     def productSalePrice(self,args:float):
-        if (isinstance(args,(int,float)) and args > 0):
-            self._productSalePrice = args
+        if (isinstance(args,(int,float)) and args > 0): self._productSalePrice = args 
+        else : raise TypeError
     @property
     def productManufactureCost(self):
         return self._productManufactureCost
     @productManufactureCost.setter
     def productManufactureCost(self,args):
-        if (isinstance(args,(int,float)) and args > 0):
-            self._productManufactureCost = args
+         if (isinstance(args,(int,float)) and args > 0): self._productManufactureCost = args
+         else : raise TypeError
     @property
     def stockLevel(self):
         return self._stockLevel
     @stockLevel.setter
     def stockLevel(self,args):
-        if (str(args) != str(float(args))) and int(args) > 0:
-            self._stockLevel = int(args)
+        if (str(args) != str(float(args))) and int(args) > 0: self._stockLevel = int(args) 
+        else : raise TypeError
     @property
     def estimatedMonthlyUnitsManufactured(self):
         return self._estimatedMonthlyUnitsManufactured
     @estimatedMonthlyUnitsManufactured.setter
     def estimatedMonthlyUnitsManufactured(self,args):
-        if (isinstance(args,int)) and args >= 0:
-            self._estimatedMonthlyUnitsManufactured = args
+        if (isinstance(args,int)) and args >= 0: self._estimatedMonthlyUnitsManufactured = args 
+        else :raise TypeError
     def next12Months(self):
         print(f"{'*'*30}\nProduct Code: {self.productCode}\nProduct Name: {self.productName}\n\nSale Price : {self.productSalePrice} CAD\nManifacture Cost : {self.productManufactureCost}\nMonthly Production : {self.estimatedMonthlyUnitsManufactured} Units\n\n{'*'*30}")
         stock = self.stockLevel
@@ -58,4 +58,4 @@ class product:
             stock -= diviation
             print(f"Month {i}:\n*{' '*5}Manufactured: {self.estimatedMonthlyUnitsManufactured} Units\n*{' '*5}Sold: {stock+diviation}\n*{' '*5}Stock: {(stock)}")
             totalSold += self.estimatedMonthlyUnitsManufactured + diviation
-        print(f"\nTotalSold : {totalSold}\nNetProfits : {totalSold*(self.productSalePrice-self.productManufactureCost)} CAD")
+        print(f"\nTotalSold is : {totalSold}\nNetProfits : {totalSold*(self.productSalePrice-self.productManufactureCost)} CAD")
