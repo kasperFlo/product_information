@@ -1,6 +1,6 @@
 import main
 productNum1 = main.product()
-while True:
+while True: # each of these segments try each until an acceptable input is inputed
     try:
         productNum1.productCode = int(input("Enter Product Code : ")) #(e.g. an integer greater than or equal to 0)
         break 
@@ -32,10 +32,3 @@ while True:
     except : print("an integer greater than or equal to 0")
 
 productNum1.next12Months()
-
-# coc.productCode = 642
-# coc.productName = "cocandbalz"
-# coc.productSalePrice = 3
-# coc.productManufactureCost = 1
-# coc.stockLevel = 100
-# coc.estimatedMonthlyUnitsManufactured = 120
